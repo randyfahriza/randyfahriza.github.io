@@ -1,0 +1,89 @@
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #ade5f8;
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    /* background-color: white; */
+    padding: 50px 20px;
+    text-align: center;
+}
+.container h4 {
+    font-weight: 500;
+    padding: 10px 0;
+}
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.container form input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    transition: all 0.2s ease;
+}
+.container form input[type="text"]:focus {
+    border: 1px solid #ff90bbea;
+    box-shadow: 0 0 0 5px #ffc1dabd ;
+    outline: none;
+    transition: ease-in-out 0.2s;
+    margin-bottom: 20px;
+}
+.container form button {
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: #578FCA;
+    border: none;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-weight: 730;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 18px;
+}
+.container form button:hover {
+    background-color: #3674B5;
+    transition: ease-in-out 0.2s;
+}
+.container form button:disabled {
+    background-color: #3674B5;
+    cursor: default;
+}
+.container .hasilCek {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container .hasilCek .progBar {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+.container .hasilCek .progBar .progBar-value {
+    display: block;
+    background-color: #8ACCD5;
+    border-radius: inherit;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
