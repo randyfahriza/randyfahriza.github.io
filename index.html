@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">    <!-- title -->
+    <!-- css -->
+    <link rel="stylesheet" href="/src/css/style.css">
+    <!-- icon -->
+    <link rel="shortcut icon" href="/src/images/kazuma.ico" type="image/x-icon">
+    <!-- title -->
+    <title>Tes Seberapa Pria Kamu?</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Tes Seberapa Pria Kamu?</h1>
+        <h4>Masukkan Nama Kamu Dan Lihat Seberapa Pria Kamu</h4>
+        <form onsubmit="cekPria(); return false;">
+            <input type="text" name="nama" id="nama" placeholder="Contoh: Randy">
+            <button type="submit" id="sumButton">Cek Sekarang</button>
+        </form>
+        <div class="hasilCek">
+            <div class="progBar" id="progBar">
+                <div id="progBar-value" class="progBar-value"></div>
+            </div>
+            <h2 id="output" class="dekskripsi"></h2>
+        </div>
+    </div>
+    <script>
+        function cekPria() {
+            const namaUser = document.getElementById("nama").value.trim();
+            const output = document.getElementById("output");
+            const progBarValue = document.getElementById("progBar-value");
+            const submitButton = document.getElementById("sumButton");
+            const progBar = document.getElementById("progBar");
+            let dekskripsi = "";
+            let nilaiLakiUser = 0;
+
+            if (namaUser === "") {
+                output.innerText = "Nama Tidak Boleh Kosong!";
+                progBar.style.display = "none";
+                progBarValue.style.display = "none";
+                return;
+            }
+            output.innerText = "";
+            progBar.style.display = "flex";
+            progBarValue.style.display = "block";
+            submitButton.disabled = true;
+
+            const nilaiLaki = Math.floor(Math.random() * 100) + 1; 
+            console.log(nilaiLaki);
+            const interval = setInterval(() => {
+                if (nilaiLakiUser == nilaiLaki) {
+                    clearInterval(interval);
+                    submitButton.disabled = false;
+
+                    
+                    if (nilaiLaki <= 2) {
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Femboy Detected!!`;
+                    } else if (nilaiLaki <= 20) {
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Lumanyan Pria.`;
+                    } else if (nilaiLaki <= 50) {
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Normal.`;
+                    } else if (nilaiLaki <= 70) {
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Banget.`;
+                    } else if (nilaiLaki <= 90) {
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Sigma!`;
+                    } else {
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Sejati!`;
+                    }
+
+                    output.innerText = dekskripsi;
+                } else {
+                    nilaiLakiUser++;
+                    progBarValue.style.width = `${nilaiLakiUser}%`;
+                };
+            }, 15);
+                    
+        };
+        // History
+        history.replaceState(null, "", location.href);
+    </script>
+</body>
+</html>
