@@ -11,12 +11,12 @@
     <!-- icon -->
     <link rel="shortcut icon" href="/src/images/kazuma.ico" type="image/x-icon">
     <!-- title -->
-    <title>Tes Seberapa Pria Kamu?</title>
+    <title>Tes Seberapa Cowok Kamu?</title>
 </head>
 <body>
     <div class="container">
-        <h1>Tes Seberapa Pria Kamu?</h1>
-        <h4>Masukkan Nama Kamu Dan Lihat Seberapa Pria Kamu</h4>
+        <h1>Tes Seberapa Cowok Kamu?</h1>
+        <h4>Masukkan Nama Kamu Dan Lihat Seberapa Cowok Kamu</h4>
         <form onsubmit="cekPria(); return false;">
             <input type="text" name="nama" id="nama" placeholder="Contoh: Randy">
             <button type="submit" id="sumButton">Cek Sekarang</button>
@@ -26,6 +26,8 @@
                 <div id="progBar-value" class="progBar-value"></div>
             </div>
             <h2 id="output" class="dekskripsi"></h2>
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHcyN2tqc2R5dXlkdDVjbm56dzhyaWc0Mnk5ZzA4MmJpbGtmd2RzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9i9fRaNhHfu92/giphy.gif" alt="gif">
+            <h4 style="width: 100%;max-width: 250px;;font-weight:700;">Tar, Tak Tambahin Gif Lain, Sekarang Gitu Aja Dulu :)</h4>
         </div>
     </div>
     <script>
@@ -58,23 +60,24 @@
 
                     
                     if (nilaiLaki <= 2) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Femboy Detected!!`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Femboy Detected!!😨😡`;
                     } else if (nilaiLaki <= 20) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Lumanyan Pria.`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Lumanyan Cowok.😆🙏`;
                     } else if (nilaiLaki <= 50) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Normal.`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Normal.😄👍`;
                     } else if (nilaiLaki <= 70) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Banget.`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Banget.😀😆`;
                     } else if (nilaiLaki <= 90) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Sigma!`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Keren!😉😮`;
                     } else {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Pria, Pria Sejati!`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Sejati!😎😎`;
                     }
 
                     output.innerText = dekskripsi;
                 } else {
                     nilaiLakiUser++;
                     progBarValue.style.width = `${nilaiLakiUser}%`;
+                    progBarValue.innerText = `${nilaiLakiUser}%`;
                 };
             }, 15);
                     
