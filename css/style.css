@@ -73,7 +73,7 @@ body {
     align-items: center;
 }
 .container .hasilCek .progBar {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     max-width: 1000px;
