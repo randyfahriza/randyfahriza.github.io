@@ -17,7 +17,7 @@
     <div class="container">
         <h1>Tes Seberapa Cowok Kamu?</h1>
         <h4>Masukkan Nama Kamu Dan Lihat Seberapa Cowok Kamu</h4>
-        <form onsubmit="cekPria(); return false;">
+        <form onsubmit="cekCowok(); return false;">
             <input type="text" name="nama" id="nama" placeholder="Contoh: Randy">
             <button type="submit" id="sumButton">Cek Sekarang</button>
         </form>
@@ -26,33 +26,35 @@
                 <div id="progBar-value" class="progBar-value"></div>
             </div>
             <h2 id="output" class="dekskripsi"></h2>
-            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHcyN2tqc2R5dXlkdDVjbm56dzhyaWc0Mnk5ZzA4MmJpbGtmd2RzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9i9fRaNhHfu92/giphy.gif" alt="gif">
-            <h4 style="width: 100%;max-width: 250px;;font-weight:700;">Tar, Tak Tambahin Gif Lain, Sekarang Gitu Aja Dulu :)</h4>
+            <img id="gif">
         </div>
     </div>
     <script>
-        function cekPria() {
+        function cekCowok() {
             const namaUser = document.getElementById("nama").value.trim();
             const output = document.getElementById("output");
             const progBarValue = document.getElementById("progBar-value");
             const submitButton = document.getElementById("sumButton");
             const progBar = document.getElementById("progBar");
+            const gifImage = document.getElementById("gif");
             let dekskripsi = "";
             let nilaiLakiUser = 0;
-
+            let gifUrl = "";
             if (namaUser === "") {
                 output.innerText = "Nama Tidak Boleh Kosong!";
                 progBar.style.display = "none";
                 progBarValue.style.display = "none";
+                gifImage.style.display = "none";
                 return;
             }
             output.innerText = "";
+            gifImage.src = "";
             progBar.style.display = "flex";
             progBarValue.style.display = "block";
+            gifImage.style.display = "block";
             submitButton.disabled = true;
 
-            const nilaiLaki = Math.floor(Math.random() * 100) + 1; 
-            console.log(nilaiLaki);
+            const nilaiLaki = Math.floor((Math.random() * 100) + 1); 
             const interval = setInterval(() => {
                 if (nilaiLakiUser == nilaiLaki) {
                     clearInterval(interval);
@@ -61,25 +63,32 @@
                     
                     if (nilaiLaki <= 2) {
                         dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Femboy Detected!!😨😡`;
+                        gifUrl = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjE4dXA5dXR1Nnh0MmJocGo2Yzg5OHd3MzBiOHJiMXRsdjJkY2xoYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nf9OkHHKlpZRK/giphy.gif";
                     } else if (nilaiLaki <= 20) {
                         dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Lumanyan Cowok.😆🙏`;
+                        gifUrl =  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWo4cmhha2lvem1oeDl0bTFwOHN1cjhkcHptbm00dnJjdDBodDUyMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/81wJ9DZneVUBO/giphy.gif";
                     } else if (nilaiLaki <= 50) {
                         dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Normal.😄👍`;
+                        gifUrl = "https://media1.tenor.com/m/yspasYLwfTsAAAAd/konosuba-kazuma.gif";
                     } else if (nilaiLaki <= 70) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Banget.😀😆`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Keren😉😮`;
+                        gifUrl = "https://media1.tenor.com/m/MSlshZS6CVYAAAAC/satoru-gojo---correndo.gif";
                     } else if (nilaiLaki <= 90) {
-                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Keren!😉😮`;
+                        dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Banget!😀😆`;
+                        gifUrl = "https://media1.tenor.com/m/07e9fER6MMYAAAAd/alya-sometimes-hides-her-feelings-in-russian-masachika-kuze.gif";
                     } else {
                         dekskripsi = `${namaUser}, Kamu ${nilaiLaki}% Cowok, Cowok Sejati!😎😎`;
+                        gifUrl = "https://media1.tenor.com/m/3G63nN93C7oAAAAC/vinland-saga-thorfinn.gif";
                     }
 
                     output.innerText = dekskripsi;
+                    gifImage.src = gifUrl;
                 } else {
                     nilaiLakiUser++;
                     progBarValue.style.width = `${nilaiLakiUser}%`;
                     progBarValue.innerText = `${nilaiLakiUser}%`;
                 };
-            }, 15);
+            }, 20);
                     
         };
         // History
